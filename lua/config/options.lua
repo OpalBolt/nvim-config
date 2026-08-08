@@ -1,3 +1,6 @@
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Add any additional options here
 --local vim = vim
 
 -- Do not hide code
@@ -8,10 +11,10 @@ vim.o.spell = false
 
 -- enable spellcheck when opening specific file types
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "markdown,tex,latex",
-	callback = function()
-		vim.o.spell = true
-	end,
+  pattern = "markdown,tex,latex",
+  callback = function()
+    vim.o.spell = true
+  end,
 })
 
 -- split screen directions
