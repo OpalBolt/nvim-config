@@ -20,6 +20,6 @@ if [ -d "/home/$USER/.config/nvim" ] ; then
 fi
 
 pmsg "symlinking neovim-config dir with ~/.config/nvim"
-ln -sv /home/$USER/git/NeoVim /home/$USER/.config/nvim
+ln -sv /home/$USER/git/nvim-config /home/$USER/.config/nvim
 
 smsg "Done setting up NeoVim!"
