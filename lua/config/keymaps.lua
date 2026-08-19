@@ -20,19 +20,6 @@ vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", { desc = "better indent" })
 vim.keymap.set("i", "<C-BS>", "<C-o>diw", { desc = "Delete word at a time insert" })
 vim.keymap.set("n", "W", "b", { desc = "Jump back a word" })
 
--- Window management
-wk.add({
-  { "<leader>w", group = "Window" },
-  { "<C-A-h>",   ":vertical resize -5<CR>", desc = "- Vertical size" },
-  { "<C-A-j>",   ":resize +5<CR>",          desc = "+Horizontal size" },
-  { "<C-A-k>",   ":resize -5<CR>",          desc = "-Horizontal size" },
-  { "<C-A-l>",   ":vertical resize +5<CR>", desc = "+Vertical size" },
-  { "<C-h>",     "<C-W><C-H>",              desc = "Move to right window" },
-  { "<C-j>",     "<C-W><C-J>",              desc = "Move to down window" },
-  { "<C-k>",     "<C-W><C-K>",              desc = "Move to up window" },
-  { "<C-l>",     "<C-W><C-L>",              desc = "Move to left window" },
-})
-
 -- Keybinds for debugging
 wk.add({
   { "<leader>d",   group = "Debug" },
