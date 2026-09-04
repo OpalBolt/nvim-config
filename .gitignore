@@ -65,4 +65,3 @@ tags
 # Persistent undo
 [._]*.un~
 
-lazy-lock.json
