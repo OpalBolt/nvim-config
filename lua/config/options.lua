@@ -48,9 +48,6 @@ vim.o.showmode = false
 -- Diplay current commmand
 vim.o.showcmd = true
 
--- faster scrolling
-vim.o.lazyredraw = true
-
 -- ensure that there is room around current line
 vim.o.scrolloff = 8
 
