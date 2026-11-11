@@ -58,5 +58,26 @@ vim.o.relativenumber = true
 -- highlight current line
 vim.o.cursorline = true
 
+-- yank/paste use the system clipboard (needs wl-clipboard on Wayland, xclip/xsel on X11)
+vim.o.clipboard = "unnamedplus"
+
+-- over SSH (also inside tmux) copy via OSC52 so it reaches the local clipboard
+if vim.env.SSH_TTY or vim.env.SSH_CONNECTION then
+  local osc52 = require("vim.ui.clipboard.osc52")
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = { ["+"] = osc52.copy("+"), ["*"] = osc52.copy("*") },
+    -- pasting via OSC52 is often blocked by terminals; paste from nvim's registers instead
+    paste = {
+      ["+"] = function()
+        return { vim.fn.split(vim.fn.getreg(""), "\n"), vim.fn.getregtype("") }
+      end,
+      ["*"] = function()
+        return { vim.fn.split(vim.fn.getreg(""), "\n"), vim.fn.getregtype("") }
+      end,
+    },
+  }
+end
+
 -- use all colors in terminal
 vim.o.termguicolors = true
